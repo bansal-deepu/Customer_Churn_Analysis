@@ -215,3 +215,5 @@ marimo/_lsp/
 
 
 
+data/raw/*.csv
+data/processed/*.csv
