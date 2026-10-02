@@ -1,196 +1,150 @@
 # 📊 Telecom Customer Churn & Retention Analysis
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-Data%20Cleaning-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![SQL Server](https://img.shields.io/badge/MS%20SQL%20Server-T--SQL-CC292B?logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/en-us/sql-server/)
-[![Power BI](https://img.shields.io/badge/Power%20BI-Interactive%20Dashboard-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-Data%20Prep-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Pandas-ETL-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MS%20SQL%20Server-Queries-CC292B?style=for-the-badge&logo=microsoftsqlserver&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
+</p>
 
 ---
 
-## 📌 Executive Summary
+## 📌 Project at a Glance
 
-Customer churn directly erodes recurring subscription revenue and drives up acquisition costs. In this portfolio project, I engineered an end-to-end data pipeline analyzing **1,000,000 subscriber records** to evaluate churn dynamics, quantify financial losses, and model potential revenue recovery through strategic retention initiatives[cite: 1].
+Customer churn is one of the biggest challenges for telecom companies. In this project, I analyzed a dataset of **1,000,000 subscriber records** to identify the root causes of churn, measure recurring revenue loss, and build a dynamic retention model.
 
-### 🎯 Key Baseline Metrics
-* **Total Customers:** 10,00,000 (1 Million accounts)[cite: 1]
-* **Churned Customers:** 2,60,158[cite: 1]
-* **Overall Churn Rate:** **26.02%** (~1 in every 4 subscribers)[cite: 1]
-* **Total Monthly Billing Revenue:** $1.40 Billion ($1,401,159,112.87)[cite: 1]
-* **Monthly Revenue Loss to Churn:** **$364.32 Million** (~$4.37 Billion annual revenue loss)[cite: 1]
-* **Average Monthly Billing:** $1,401.16 (Base average) vs. $1,401.55 (Month-to-Month churned average), showing that churn is eroding high-paying core accounts rather than low-value users.
-* **What-If ROI Impact:** A targeted **5% reduction in churn** preserves **$18.22 Million/month**, delivering **$218.59 Million annually** back to the business[cite: 1].
+### 💡 Core Metrics Snapshot
+> 👥 **Total Customer Base:** 10,00,000 (10 Lakh Accounts)  
+> 🔻 **Churned Users:** 2,60,158 (**26.02% overall churn rate**)  
+> 💰 **Total Monthly Billing:** $1.40 Billion  
+> 💸 **Monthly Lost Revenue:** **$364.32 Million** (~$4.37 Billion/year)  
+> 📈 **ROI Impact (5% Reduction):** **+$18.22M saved/month** (**+$218.59M annual recovery**)
 
 ---
 
-## 🖥️ Interactive Power BI Dashboards
+## 🖥️ Power BI Interactive Dashboards
 
-The reporting framework consists of a 2-page interactive dashboard designed in Power BI[cite: 1, 2]:
+### 1. Executive Summary & Revenue Impact
+> Visualizing baseline KPIs, state-wise revenue bleed, dynamic What-If parameter, and high-risk accounts.
 
-### Page 1: Executive KPI & Revenue Impact Overview
-![Executive Dashboard](assets/dashboard_page1.png)
-* **Global Slicers:** State, Subscription Type, Internet Service, Contract Type, Payment Method[cite: 1].
-* **Macro KPI Cards:** Real-time visibility into Total Customers, Churned Accounts, Monthly Revenue, Churn %, and Lost Revenue[cite: 1].
-* **State Revenue Exposure:** Bar chart comparing Total vs. Lost Monthly Revenue across states[cite: 1].
-* **Dynamic What-If Parameter:** Interactive DAX slider allowing stakeholders to simulate churn reduction rates (defaulted at 5%)[cite: 1].
-* **High-Risk Ledger:** Tabular view identifying top churned customers with high cumulative lifetime spend[cite: 1].
+<p align="center">
+  <img width="95%" src="assets/Customer churn and retention overview.png" alt="Overview Dashboard"/>
+</p>
 
----
-
-### Page 2: Behavioral & Cohort Breakdown
-![Breakdown Analysis](assets/dashboard_page2.png)
-* **Service Breakdown:** Visual distribution across Internet Service types (Fiber, DSL, 5G, Cable)[cite: 2].
-* **Contract Duration:** Comparison of Month-to-Month volatility against 1-year and 2-year stability[cite: 2].
-* **Subscription Tier Split:** Churn distribution across Basic, Standard, and Premium tiers[cite: 2].
-* **Payment Methods & Tech Support:** Analysis of churn across payment channels and tech support interactions[cite: 2].
-* **Tenure Group Cohorts:** Visualizing customer loss across different lifecycle stages[cite: 2].
+* **Top Slicers:** Filter by State, Subscription Tier, Internet Type, Contract, and Payment Method.
+* **State Revenue Risk:** Maharashtra ($91.29M) and UP ($90.94M) account for 50% of the entire lost revenue.
+* **What-If Slider:** Management can test churn reduction from 1% to 15% in real time.
+* **High-Risk Table:** Identifies churned users with cumulative spend over $179,000.
 
 ---
 
-## 🔍 Key Data Insights & Analytical Findings
+### 2. Churn Drivers & Behavioral Breakdown
+> Deep-dive cohort analysis across infrastructure, contracts, plans, and support touchpoints.
 
-| Dimension | Primary Finding | Business Diagnostic |
-| :--- | :--- | :--- |
-| **Contract Duration** | **Month-to-Month drives 45.20% (117,582)** of total churn[cite: 2]. | Zero exit barriers drive immediate drop-offs compared to 1-Year (29.96%) and 2-Year (24.84%) plans[cite: 2]. |
-| **Internet Service** | **Fiber optics accounts for 34.93% (90,885)** of churn[cite: 2]. | Outpaces DSL (25.04%), 5G (20.06%), and Cable (19.97%), pointing toward network stability issues or aggressive competitor offers[cite: 2]. |
-| **Subscription Tier** | **Basic tier leads attrition at 41.84% (108,851)**[cite: 2]. | Standard (29.95%) and Premium (28.21%) churn less; entry-tier users experience onboarding friction or low perceived value[cite: 2]. |
-| **Regional Concentration** | **Maharashtra ($91.29M) & UP ($90.94M)** drive **50.0% ($182.23M)** of all revenue loss[cite: 1]. | Revenue loss is heavily concentrated; retention initiatives must prioritize these two geographic regions[cite: 1]. |
-| **Tenure Paradox** | **25–48 mo (33.40%) & 49–72 mo (33.23%)** are the largest exit cohorts[cite: 2]. | Veteran customers who completed 2 to 6 years are leaving post-contract, highlighting a lack of loyalty perks[cite: 2]. |
-| **Tech Support Inefficacy** | **51.01% No Support vs. 48.99% Support** usage among churners[cite: 2]. | Contacting tech support fails to prevent cancellation, indicating need for better First Contact Resolution (FCR)[cite: 2]. |
-| **Payment Channels** | **UPI represents 70,005 accounts (26.91%)**, followed by Credit Card (22.18%) and Debit Card (22.14%)[cite: 2]. | Non-recurring / manual payment setups show higher drop-offs compared to auto-debit mechanisms. |
+<p align="center">
+  <img width="95%" src="assets/Churn drivers.png" alt="Churn Drivers"/>
+</p>
+
+* **Contract Duration:** Month-to-Month accounts represent **45.2%** of churn due to zero exit barriers.
+* **Internet Type:** Fiber optic users lead churn at **34.9%**, outranking DSL (25%) and 5G (20%).
+* **Subscription Tier:** Basic plans account for **41.8%** of drop-offs, indicating entry-tier value gap.
+* **Tech Support Paradox:** Users with support churn at **48.99%** vs **51.01%** without, proving support is not retaining customers.
 
 ---
 
-## ⚙️️ Technical Architecture & Pipeline
+## 🔍 Top 5 Key Insights
 
+| # | Finding | Key Numbers | Business Meaning |
+|---|---|---|---|
+| **1** | **Month-to-Month Risk** | 1,17,582 accounts (45.2%) | No lock-in means users leave on the first billing or speed issue. |
+| **2** | **Fiber Optics Drop-off** | 90,885 accounts (34.9%) | Premium service suffering from line drops or competitor pricing. |
+| **3** | **Regional Concentration** | Maharashtra + UP = $182.2M loss | **50% of total revenue drain** is concentrated in just two states. |
+| **4** | **The Tenure Paradox** | 25–72 month cohort = 66.6% | Old, loyal customers are leaving upon contract expiry (lack of loyalty perks). |
+| **5** | **Support Ineffectiveness** | 49% churned had contacted support | Calls do not lead to retention; First-Contact Resolution needs overhaul. |
+
+---
+
+## 🛠️ Step-by-Step Technical Pipeline
+
+```mermaid
+flowchart LR
+    A[Raw CSV: 1M Rows] --> B[Python / Pandas]
+    B --> C[Clean CSV & Features]
+    C --> D[MS SQL Server]
+    D --> E[Power BI & DAX]
 ```
-Raw CSV (1,000,000 Records)
-   └── Python (Pandas ETL & Feature Engineering)
-         └── Data Cleansing & Validation
-               └── MS SQL Server (Relational Storage & T-SQL Queries)
-                     └── Power BI (Data Modeling, DAX Measures, What-If Simulation)
-```
 
-### 1. Python Data Cleaning & Feature Engineering
-* Stripped leading/trailing whitespace across string fields (`.str.strip()`) to avoid duplicate SQL grouping[cite: 4].
-* Standardized text casing across categorical columns (`.str.title()`)[cite: 4].
-* Converted charges, tenure, and age into numeric datatypes, and formatted interaction dates[cite: 4].
-* Derived custom features:
-  * `Churn_Flag`: Binary `1/0` indicator for clean aggregation in SQL and DAX[cite: 6].
-  * `Customer_Value`: Cumulative lifetime spend (`Tenure_Months * Monthly_Charges`)[cite: 1, 5].
-  * `Tenure_Group`: Binned into `0-12`, `13-24`, `25-48`, and `49-72 months`[cite: 2, 5].
-  * `Age_Group`: Categorized into `Young`, `Adult`, and `Senior`[cite: 1, 6].
+### 1. Python (Data Cleaning & Feature Engineering)
+* Cleaned whitespace (`.str.strip()`) and standardized text casing (`.str.title()`).
+* Cast datatypes and verified zero duplicate `Customer_ID` rows.
+* Created 4 custom business columns:
+  * `Churn_Flag`: Binary `1/0` indicator for simple aggregation.
+  * `Customer_Value`: `Tenure_Months * Monthly_Charges` to find VIP spenders.
+  * `Tenure_Group`: Binned into `0-12`, `13-24`, `25-48`, `49-72` months.
+  * `Age_Group`: Binned into `Young`, `Adult`, `Senior`.
 
-### 2. SQL Server Analysis (T-SQL)
-* Built structured queries to calculate churn rates, group revenue by state, and rank top churners.
-* Sample query for contract-level churn distribution:
-
+### 2. SQL Server (Analytical Queries)
+* Wrote group-by aggregations and churn rate queries in T-SQL:
 ```sql
 SELECT 
     contract_type,
-    COUNT(CASE WHEN Churn_Flag = 1 THEN 1 END) AS Churned_Customers,
-    CAST(
-        ROUND(
-            COUNT(CASE WHEN Churn_Flag = 1 THEN 1 END) * 100.0 / 
-            (SELECT COUNT(*) FROM customer_churn WHERE Churn_Flag = 1), 
-            2
-        ) AS DECIMAL(10, 2)
-    ) AS Churn_Rate_Pct
+    COUNT(CASE WHEN Churn_Flag = 1 THEN 1 END) AS Churned_Count,
+    CAST(ROUND(COUNT(CASE WHEN Churn_Flag = 1 THEN 1 END) * 100.0 / 
+        (SELECT COUNT(*) FROM customer_churn WHERE Churn_Flag = 1), 2) AS DECIMAL(10,2)) AS Churn_Pct
 FROM customer_churn
 GROUP BY contract_type
-ORDER BY Churn_Rate_Pct DESC;
+ORDER BY Churn_Pct DESC;
 ```
 
-### 3. Power BI DAX Financial Simulation
-Dynamic parameter logic used to calculate potential revenue savings:
+### 3. Power BI (Dynamic DAX Modeling)
+* **What-If Revenue Measure:**
 ```dax
-Potential Monthly Revenue Saved = 
-[Lost Monthly Revenue] * 'Churn Reduction %'[Churn Reduction Value]
-
-Potential Annual Revenue Saved = 
-[Potential Monthly Revenue Saved] * 12
+Potential Monthly Revenue Saved = [Lost Monthly Revenue] * 'Churn Reduction %'[Churn Reduction Value]
+Potential Annual Revenue Saved  = [Potential Monthly Revenue Saved] * 12
 ```
 
 ---
 
-## 💡 Practical Business Recommendations
+## 🎯 Practical Recommendations
 
-1. **Incentivize Annual Contracts:** Offer a 10%–12% discount or speed bump for Month-to-Month customers moving to 1-Year plans, targeting the 45.2% churn segment[cite: 2].
-2. **Targeted Fiber Network Audits:** Run infrastructure quality checks across Maharashtra and Uttar Pradesh to resolve line drops and speed issues[cite: 1, 2].
-3. **Tenure Loyalty Milestone Rewards:** Introduce milestone benefits (free streaming add-ons or speed boosts) for accounts completing 2 and 4 years to counter long-term renewal drop-offs[cite: 2].
-4. **Basic Tier Value Enhancement:** Add basic features (such as free security tools or automated onboarding checkups) to reduce early cancellations[cite: 2].
-5. **Tech Support First-Contact Resolution:** Equip support agents with the ability to offer quick billing credits or issue waivers during downtime to retain dissatisfied users[cite: 2].
+1. **Convert Month-to-Month Subscribers:** Offer a 10%–12% discount or 1 free month to switch to 1-year agreements.
+2. **Prioritize Fiber Line Quality in MH & UP:** Conduct regional network audits to fix downtime and jitter in high-bleed zones.
+3. **Reward Loyal Customers (2+ Years):** Introduce 2nd and 4th anniversary speed bumps or streaming perks to prevent veteran drop-offs.
+4. **Boost Basic Plan Value:** Add entry-tier perks (basic security suite) to improve perceived price-to-value.
+5. **Empower Support with Retention Credits:** Allow support reps to give instant 20% billing discounts during reported outages.
 
 ---
 
-## 📁 Repository Structure
+## 📂 Repository Structure
 
 ```text
 Customer_Churn_Analysis/
 │
-├── data/
-│   ├── raw/                        # Original raw dataset
-│   └── processed/                  # Cleaned dataset (cleaned_customer_churn.csv)
+├── assets/
+│   ├── Customer churn and retention overview.png  # Page 1 screenshot
+│   └── Churn drivers.png                          # Page 2 screenshot
 │
 ├── notebooks/
-│   └── customer_churn_eda.ipynb    # Python cleaning & feature engineering notebook
+│   └── customer_churn_eda.ipynb    # Python cleaning & feature engineering
 │
 ├── sql/
-│   └── churn_analysis_queries.sql  # T-SQL analytical and KPI queries
+│   └── churn_analysis_queries.sql  # T-SQL analytical scripts
 │
 ├── powerbi/
-│   └── customer_churn_dashboard.pbix # Power BI dashboard file
-│
-├── assets/
-│   ├── dashboard_page1.png         # Executive dashboard screenshot
-│   └── dashboard_page2.png         # Breakdown dashboard screenshot
+│   └── customer_churn.pbix         # Interactive Power BI report file
 │
 ├── reports/
-│   └── Customer_Churn_Analysis_Report.docx # Word document project report
+│   └── Project_Report.docx         # Detailed project documentation
 │
 ├── .gitignore
 ├── LICENSE
-├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 🚀 How to Run Locally
-
-### Prerequisites
-* Python 3.9+
-* Microsoft SQL Server & SQL Server Management Studio (SSMS)
-* Microsoft Power BI Desktop
-
-### Steps
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/bansal-deepu/Customer_Churn_Analysis.git](https://github.com/bansal-deepu/Customer_Churn_Analysis.git)
-   cd Customer_Churn_Analysis
-   ```
-2. **Install Python dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. **Run Data Preparation:**
-   * Open `notebooks/customer_churn_eda.ipynb` in Jupyter Notebook[cite: 3].
-   * Run all cells to process the data and generate engineered features[cite: 5].
-4. **Database Staging & SQL Analysis:**
-   * Import `cleaned_customer_churn.csv` into MS SQL Server[cite: 6].
-   * Run the scripts in `sql/churn_analysis_queries.sql`.
-5. **View Dashboard:**
-   * Open `powerbi/customer_churn_dashboard.pbix` in Power BI Desktop to interact with the visualizations and What-If parameter slider[cite: 1, 2].
-
----
-
-## 📜 License
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 Author
+## 👤 Author & Connect
 **Deepanshu Bansal**  
-* [LinkedIn](https://www.linkedin.com/in/deepanshu-bansal-55db36)  
-* [GitHub Profile](https://github.com/bansal-deepu)  
-* Email: Bansaldeepanshu1976@gmail.com
+* 💼 [LinkedIn Profile](https://www.linkedin.com/in/deepanshu-bansal-55db36)  
+* 🐙 [GitHub Profile](https://github.com/bansal-deepu)  
+* ✉️ Bansaldeepanshu1976@gmail.com
