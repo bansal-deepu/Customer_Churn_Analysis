@@ -212,6 +212,24 @@ tempCodeRunnerFile.py
 # Marimo
 marimo/_static/
 marimo/_lsp/
+
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Virtual Environments
+env/
+venv/
+ENV/
+
+# Large data files (optional, if file is > 100MB for GitHub)
+# data/raw/*.csv
+
+# Power BI temp files
+*.pbix.temp
 __marimo__/
 
 # Streamlit
