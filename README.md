@@ -147,4 +147,4 @@ Customer_Churn_Analysis/
 **Deepanshu Bansal**  
 * 💼 [LinkedIn Profile](https://www.linkedin.com/in/deepanshu-bansal-55db36)  
 * 🐙 [GitHub Profile](https://github.com/bansal-deepu)  
-* ✉️ Bansaldeepanshu1976@gmail.com
+* ✉️️ [Email](mailto:bansaldeepanshu1976@gmail.com)
